@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-#define MAX_TENTATIVAS 3
-
 int main() {
   printf("******************************************\n");
   printf("* Bem vindo ao nosso jogo de adivinhação *\n");
@@ -9,12 +7,18 @@ int main() {
 
   int numSecret = 42;
   int numChute;
+  int tentativas = 1;
 
-  for (int i = 1; i <= MAX_TENTATIVAS; i++) {
-    printf("Tentativa %d de %d\n", i, MAX_TENTATIVAS);
+  while (1) {
+    printf("Tentativa %d\n", tentativas);
     printf("Qual é o seu chute? ");
     scanf("%d", &numChute);
     printf("Seu chute foi %d\n", numChute);
+
+    if (numChute < 0) {
+      printf("Você não pode chutar números negativos!\n");
+      continue;
+    }
 
     int isTheNumberSecret = (numChute == numSecret);
     int isTheNumberBigger = (numChute > numSecret);
@@ -23,11 +27,14 @@ int main() {
       printf("Parabéns, você acertou!\n");
       break;
     } else if (isTheNumberBigger) {
-      printf("Seu chute foi menor que o número secreto.\n");
-    } else {
       printf("Seu chute foi maior que o número secreto.\n");
+    } else {
+      printf("Seu chute foi menor que o número secreto.\n");
     }
+
+    tentativas++;
   }
 
   printf("Fim do jogo!\n");
+  printf("Você acertou o número secreto em %d tentativas.\n", tentativas);
 }
