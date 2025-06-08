@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
   printf("******************************************\n");
@@ -38,11 +39,11 @@ int main() {
 
     tentativas++;
 
-    double pontosPerdidos = (numChute - numSecret) / 2.0;
+    double pontosPerdidos = abs(numChute - numSecret) / (double)2;
     pontos -= pontosPerdidos;
   }
 
   printf("Fim do jogo!\n");
   printf("Você acertou em %d tentativas!\n", tentativas);
-  printf("Total de pontos: %.1f\n", pontos);
+  printf("Total de pontos: %.2f\n", pontos);
 }
