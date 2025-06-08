@@ -6,11 +6,15 @@ int main() {
   printf("******************************************\n");
 
   int numSecret = 42;
+
   int numChute;
   int tentativas = 1;
 
+  double pontos = 1000;
+
   while (1) {
     printf("Tentativa %d\n", tentativas);
+
     printf("Qual é o seu chute? ");
     scanf("%d", &numChute);
     printf("Seu chute foi %d\n", numChute);
@@ -33,8 +37,12 @@ int main() {
     }
 
     tentativas++;
+
+    double pontosPerdidos = (numChute - numSecret) / 2.0;
+    pontos -= pontosPerdidos;
   }
 
   printf("Fim do jogo!\n");
-  printf("Você acertou o número secreto em %d tentativas.\n", tentativas);
+  printf("Você acertou em %d tentativas!\n", tentativas);
+  printf("Total de pontos: %.1f\n", pontos);
 }

@@ -1,2 +1,11 @@
 Compilando programa C:
   gcc program.c -o program.out
+
+Tipos
+  Inteiros
+    short = 2 bytes = 16bits = 2^16
+    int = 4 bytes = 32bits = 2^32
+    long = 8 bytes = 64bits = 2^64
+  Pontos flutuantes
+    float = 4 bytes = 32bits = 2^32
+    double = 8 bytes = 64bits = 2^64
