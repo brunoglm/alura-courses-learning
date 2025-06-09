@@ -1,14 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 int main() {
   printf("******************************************\n");
   printf("* Bem vindo ao nosso jogo de adivinhação *\n");
   printf("******************************************\n");
 
-  int n1 = rand();
+  int segundos = time(0);
+  srand(segundos);
+  int numeroGrande = rand();
 
-  int numSecret = n1;
+  int numSecret = numeroGrande % 100;
 
   int numChute;
   int tentativas = 1;
