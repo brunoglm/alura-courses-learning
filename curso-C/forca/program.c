@@ -10,7 +10,13 @@ int main() {
   int enforcou = 0;
 
   char chutes[26];
-  int tentativas;
+  int tentativas = 0;
+
+  printf("************************************\n");
+  printf("* Bem-vindo ao jogo da forca!     *\n");
+  printf("************************************\n");
+  printf("A palavra secreta tem %d letras.\n", (int)strlen(palavrasecreta));
+  printf("Tente adivinhar a palavra!\n");
 
   do {
     for (int i = 0; i < strlen(palavrasecreta); i++) {
