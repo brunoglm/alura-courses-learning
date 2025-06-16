@@ -46,11 +46,28 @@ void desenhaForca(char palavrasecreta[20], char chutes[26], int tentativas) {
   printf("\n");
 }
 
+int enforcou(char palavrasecreta[20], char chutes[26], int tentativas) {
+  int erros = 0;
+  for (int i = 0; i < tentativas; i++) {
+    int existe = 0;
+    for (int j = 0; j < strlen(palavrasecreta); j++) {
+      if (chutes[i] == palavrasecreta[j]) {
+        existe = 1;
+        break;
+      }
+    }
+
+    if (!existe)
+      erros++;
+  }
+
+  return erros >= 5;
+}
+
 int main() {
   char palavrasecreta[20];
 
   int acertou = 0;
-  int enforcou = 0;
 
   char chutes[26];
   int tentativas = 0;
@@ -61,5 +78,5 @@ int main() {
   do {
     desenhaForca(palavrasecreta, chutes, tentativas);
     chuta(chutes, &tentativas);
-  } while (!acertou && !enforcou);
+  } while (!acertou && !enforcou(palavrasecreta, chutes, tentativas));
 }
