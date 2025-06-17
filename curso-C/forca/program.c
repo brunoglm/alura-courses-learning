@@ -139,4 +139,6 @@ int main() {
     chuta(chutes, &chutesdados);
   } while (!acertou(palavrasecreta, chutes, chutesdados) &&
            !enforcou(palavrasecreta, chutes, chutesdados));
+
+  adicionapalavra();
 }
