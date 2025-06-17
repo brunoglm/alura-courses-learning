@@ -1,23 +1,13 @@
+#include "program.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 void abertura() {
   printf("************************************\n");
   printf("* Bem-vindo ao jogo da forca!     *\n");
   printf("************************************\n");
-}
-
-int jachutou(char letra, char chutes[26], int chutesdados) {
-  int achou = 0;
-
-  for (int j = 0; j < chutesdados; j++) {
-    if (chutes[j] == letra) {
-      achou = 1;
-      break;
-    }
-  }
-
-  return achou;
 }
 
 void chuta(char chutes[26], int *chutesdados) {
@@ -29,7 +19,20 @@ void chuta(char chutes[26], int *chutesdados) {
 }
 
 void escolhepalavra(char palavrasecreta[20]) {
-  sprintf(palavrasecreta, "MELANCIA");
+  FILE *f;
+  f = fopen("palavras.txt", "r");
+
+  int qtddepalavras;
+  fscanf(f, "%d", &qtddepalavras);
+
+  srand(time(0));
+  int randomico = rand() % qtddepalavras;
+
+  for (int i = 0; i <= randomico; i++) {
+    fscanf(f, "%s", palavrasecreta);
+  }
+
+  fclose(f);
 }
 
 void desenhaForca(char palavrasecreta[20], char chutes[26], int chutesdados) {
@@ -46,7 +49,7 @@ void desenhaForca(char palavrasecreta[20], char chutes[26], int chutesdados) {
   printf("\n");
 }
 
-int ganhou(char palavrasecreta[20], char chutes[26], int chutesdados) {
+int acertou(char palavrasecreta[20], char chutes[26], int chutesdados) {
   for (int i = 0; i < strlen(palavrasecreta); i++) {
     if (!jachutou(palavrasecreta[i], chutes, chutesdados)) {
       return 0;
@@ -73,6 +76,19 @@ int enforcou(char palavrasecreta[20], char chutes[26], int chutesdados) {
   return erros >= 5;
 }
 
+int jachutou(char letra, char chutes[26], int chutesdados) {
+  int achou = 0;
+
+  for (int j = 0; j < chutesdados; j++) {
+    if (chutes[j] == letra) {
+      achou = 1;
+      break;
+    }
+  }
+
+  return achou;
+}
+
 int main() {
   char palavrasecreta[20];
 
@@ -85,6 +101,6 @@ int main() {
   do {
     desenhaForca(palavrasecreta, chutes, chutesdados);
     chuta(chutes, &chutesdados);
-  } while (!ganhou(palavrasecreta, chutes, chutesdados) &&
+  } while (!acertou(palavrasecreta, chutes, chutesdados) &&
            !enforcou(palavrasecreta, chutes, chutesdados));
 }
