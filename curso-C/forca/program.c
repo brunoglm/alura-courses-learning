@@ -18,9 +18,45 @@ void chuta(char chutes[26], int *chutesdados) {
   (*chutesdados)++;
 }
 
+void adicionapalavra() {
+  char quer;
+
+  printf("Você deseja adicionar uma nova palavra ao jogo? (S/N)\n");
+  scanf(" %c", &quer);
+
+  if (quer == 'S') {
+    printf("Digite a nova palavra:\n");
+    char novapalavra[20];
+    scanf("%s", novapalavra);
+
+    FILE *f;
+    f = fopen("palavras.txt", "r+");
+    if (f == 0) {
+      printf("Desculpe, banco de palavras não disponível.\n\n");
+      exit(1);
+    }
+
+    int qtd;
+    fscanf(f, "%d", &qtd);
+    qtd++;
+
+    fseek(f, 0, SEEK_SET);
+    fprintf(f, "%d", qtd);
+
+    fseek(f, 0, SEEK_END);
+    fprintf(f, "\n%s", novapalavra);
+
+    fclose(f);
+  }
+}
+
 void escolhepalavra(char palavrasecreta[20]) {
   FILE *f;
   f = fopen("palavras.txt", "r");
+  if (f == 0) {
+    printf("Desculpe, banco de palavras não disponível.\n\n");
+    exit(1);
+  }
 
   int qtddepalavras;
   fscanf(f, "%d", &qtddepalavras);
