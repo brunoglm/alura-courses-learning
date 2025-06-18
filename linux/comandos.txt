@@ -1,0 +1,11 @@
+iniciar sessão como root no terminal
+  sudo -i
+
+Abre uma sessão de shell como usuário root, mantendo o ambiente do usuário atual
+  sudo su
+
+voltar para home do usuário atual
+  cd ~ ou cd
+
+criar pastas já com sub-pastas
+  mkdir -p pasta1/pasta2
