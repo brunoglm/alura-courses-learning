@@ -1,0 +1,2 @@
+Compilando programa Cobol:
+  cobc -x OLACOBOL.COB -o OLACOBOL.OUT
