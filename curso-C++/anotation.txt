@@ -1,0 +1,2 @@
+Compilando programa C++:
+  g++ program.cpp -o program.out
