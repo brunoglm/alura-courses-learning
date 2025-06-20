@@ -1,0 +1,2 @@
+Compilando programa Cobol:
+  cobc -x nome-arquivo.cob -o nome-arquivo.out
