@@ -1,11 +1,66 @@
-iniciar sessão como root no terminal
-  sudo -i
+Sessões
+  iniciar sessão como root no terminal
+    sudo -i
 
-Abre uma sessão de shell como usuário root, mantendo o ambiente do usuário atual
-  sudo su
+  Abre uma sessão de shell como usuário root, mantendo o ambiente do usuário atual
+    sudo su
 
-voltar para home do usuário atual
-  cd ~ ou cd
 
-criar pastas já com sub-pastas
-  mkdir -p pasta1/pasta2
+Naveção e acesso de arquivos
+  voltar para home do usuário atual
+    cd ~ ou cd
+
+  listando todos os arquivos, incluindo ocultos
+    ls -a
+
+  listando arquivos com detalhes
+    ls -l
+
+    detalhando permissões
+      d rwx rwx rwx
+      - rwx rwx rwx
+
+      primeiro caractere
+        d → diretório
+        - → arquivo
+
+      proximos 9 caracteres
+        rwx → permissões do dono do arquivo
+        rwx → permissões do grupo do arquivo
+        rwx → permissões de outros usuários
+
+        onde estiver - não há permissão
+
+      representação numérica das permissões
+        r → 4
+        w → 2
+        x → 1
+
+        exemplo: rwx rwx r-- → 774
+
+      mudando o acesso de um arquivo ou pasta
+        chmod 774 arquivo.txt
+
+        exemplo com pasta e sub-pastas
+          chmod -R 774 pasta1/
+
+
+
+Diretórios e arquivos
+  criar pastas já com sub-pastas
+    mkdir -p pasta1/pasta2
+
+  mover arquivos ou pastas
+    mv arquivo.txt pasta1/
+
+    caso não estejamos na pasta do arquivo
+      mv /home/usuario/arquivo.txt pasta1/
+
+  copiar arquivos ou pastas
+    cp arquivo.txt pasta1/
+
+    copiar mudando o nome do arquivo
+      cp arquivo.txt pasta1/arquivo_copiado.txt
+
+    caso não estejamos na pasta do arquivo
+      cp /home/usuario/arquivo.txt pasta1/
