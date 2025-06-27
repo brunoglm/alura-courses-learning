@@ -1,0 +1,38 @@
+Conceitos:
+  PPID: Identificador do Processo Pai
+  PID: Identificador do Processo
+  USER: Usuário que iniciou o processo
+  PR: Prioridade do processo
+  NI: Valor de nice do processo (prioridade ajustada)
+  VIRT: Memória virtual usada pelo processo
+  RES: Memória residente usada pelo processo
+  SHR: Memória compartilhada usada pelo processo
+  S: Estado do processo (R: executando, S: dormindo, Z: zumbi, T: parado)
+  %CPU: Porcentagem de uso da CPU
+  %MEM: Porcentagem de uso da memória
+  TIME+: Tempo total de CPU usado pelo processo
+  COMMAND: Comando que iniciou o processo
+
+Exibindo a tabela de processos:
+  top
+
+Vendo o status dos processos que estão em execução:
+  ps
+
+  vendo em forma de árvore:
+    pstree
+
+  vendo só de um user
+    ps -u <user>
+
+  vendo com mais detalhes:
+    ps aux
+
+    conceitos:
+      VSZ: Memória virtual usada pelo processo
+      RSS: Memória residente usada pelo processo
+      TTY: Terminal associado ao processo
+      STAT: Estado do processo (R: executando, S: dormindo, Z: zumbi, T: parado)
+      START: Hora de início do processo
+      TIME: Tempo total de CPU usado pelo processo
+      COMMAND: Comando que iniciou o processo
