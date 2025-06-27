@@ -1,0 +1,11 @@
+Pacote Linux
+  Conjunto de software/ferramentas para o funcionamento de sistemas
+
+Buscando se há atualizações disponíveis...
+  sudo apt update
+
+Atualizando pacotes instalados...
+  sudo apt upgrade -y
+
+instalando pacotes adicionais...
+  sudo apt install -y <pacote1> <pacote2> <pacote3>
