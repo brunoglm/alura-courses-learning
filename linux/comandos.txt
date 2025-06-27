@@ -56,6 +56,9 @@ Diretórios e arquivos
     caso não estejamos na pasta do arquivo
       mv /home/usuario/arquivo.txt pasta1/
 
+    mover pasta renomeando
+      mv pasta1/ pasta2/
+
   copiar arquivos ou pastas
     cp arquivo.txt pasta1/
 
@@ -64,3 +67,28 @@ Diretórios e arquivos
 
     caso não estejamos na pasta do arquivo
       cp /home/usuario/arquivo.txt pasta1/
+
+    copiando pastas
+      cp -r pasta1/ pasta2/
+
+    remover arquivos ou pastas
+      rm arquivo.txt
+
+      rm -r pasta1/
+
+      removendo com confirmação
+        rm -i arquivo.txt
+
+      removendo pasta vazia
+        rmdir pasta1/
+
+
+escrevendo em arquivos
+  redirecionando a saída de um comando para um arquivo. Caso o arquivo não exista, ele será criado. Caso exista, o conteúdo será sobrescrito.
+    ls -l > lista.txt
+
+  acrescentando a saída de um comando a um arquivo. Caso o arquivo não exista, ele será criado. Caso exista, o conteúdo será acrescentado ao final do arquivo.
+    ls -l >> lista.txt
+
+  escrevendo em um arquivo com o comando echo
+    echo "Olá, mundo!" > arquivo.txt
